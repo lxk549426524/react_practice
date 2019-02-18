@@ -9,7 +9,6 @@ class Index extends Component {
         }
     }
     deatilClick=(content)=>{
-        console.log(content)
         this.setState({
             content
         })
@@ -18,7 +17,8 @@ class Index extends Component {
         let {content} = this.state
         return (
             <div>
-                this is index
+                {console.log(content)}
+                {content}
                 <Deatil content={content} deatilClick={this.deatilClick}/>
             </div>
         );
