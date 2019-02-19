@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Index from './day6/index';
+import data from './day7_1/data/data'
+import Home from './day7_1/view/home';
 
-ReactDOM.render(<Index />, document.getElementById('root'));
+ReactDOM.render(<Home data={data} />, document.getElementById('root'));
 

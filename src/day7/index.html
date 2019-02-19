@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.js"></script>
+    <script type='text/babel'>
+        function fun (cbk){
+            let list={
+                'A':[1,2,3],
+                'B':[4,5,6],
+                'C':[7,8,9]
+            }
+            let content=cbk(list)
+            return ()=>{
+                return class extends React.Component{
+                    render(){
+                        return <Achild content={content} />
+                    }
+                }
+            }
+        }
+        class Achild extends React.Component{
+            render(){
+                let {content}=this.props
+                return (
+                    <div>{content}</div>
+                )
+            }
+        }
+        let App=fun((list)=>{
+            return list['C']
+        })(Achild)
+        ReactDOM.render(<App />,document.getElementById('app'))
+    </script>
+</body>
+</html>
