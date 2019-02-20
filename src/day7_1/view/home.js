@@ -4,7 +4,6 @@ import Index from './index';
 class Home extends Component {
     render () {
         let {data}=this.props
-        console.log(data)
         return (
             <div>
                 home主页面
