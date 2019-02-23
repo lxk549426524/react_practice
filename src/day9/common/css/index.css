@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body,#root,.app{
+    width: 100%;
+    height: 100%;
+}
+.app{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+header{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    background: crimson;
+    color: #fff;
+}
+
+section{
+    flex: 1;
+    overflow:hidden;
+}
+section .shop{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 5px 10px;
+    box-sizing: border-box;
+}
+section .shop .home{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.linkStyle{
+    text-decoration: none;
+    color: #000;
+}
+section .shop .home .list{
+    overflow-y: auto;
+    flex: 1;
+}
+section .shop .home .video{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom:1px solid #ccc;
+}
+
+section .shop .home .content{
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+section .shop .content button{
+    flex: 1;
+    background: crimson;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+}
+section .shop .content img{
+    flex: 2;
+}
+section .shop .content .contentlist{
+    flex: 7;
+}
+section .shop footer{
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+section .shop footer p{
+    text-align: center;
+    font-size: 20px;
+}
