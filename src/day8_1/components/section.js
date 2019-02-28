@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Message from '../containers/message';
 import Site from '../containers/site';
 let arr=[]
+let ind=0
 class Section extends Component {
     constructor(props) {
         super(props);
@@ -11,6 +12,7 @@ class Section extends Component {
         }
     }
     affirmClick=(obj)=>{
+        console.log(obj)
         arr.push(obj)
         this.setState({
             content:arr
@@ -24,17 +26,17 @@ class Section extends Component {
             content:arr
         })
     }
-    amendClick=(list,ind)=>{
-        this.setState({
-            amend:list
-        })
-        console.log('amend',list,ind)
+    amendClick=(list,inds)=>{
+        ind=inds
+        console.log(arr[ind])
+        console.log('amend',list)
     }
     amendChange=()=>{
 
     }
     render() {
         let {content,amend}=this.state
+        console.log(arr[ind])
         return (
             <section>
                 <Site affirmClick={this.affirmClick} amendChange={this.amendChange} amend={amend}/>

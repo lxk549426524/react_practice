@@ -14,36 +14,52 @@ class Site extends Component {
         }
     }
     inputChange=(e)=>{
-        let show=e.target.className
-        if(e.target.className==='name'){
-            this.setState({
-                list:{
-                    name:e.target.value
-                }
-            }) 
-        }else if(e.target.className==='tal'){
-            this.setState({
-                list:{
-                    tal:e.target.value
-                }
-            }) 
-        }else if(e.target.className==='site'){
-            this.setState({
-                list:{
-                    site:e.target.value
-                }
-            }) 
-        }else if(e.target.className==='address'){
-            this.setState({
-                list:{
-                    address:e.target.value
-                }
-            }) 
-        }else{
-            return
+        let {list}=this.state
+        switch(e.target.name){
+            case 'name':
+                this.setState({
+                    list:{
+                        name:e.target.value,
+                        tal:list.tal,
+                        site:list.site,
+                        address:list.address
+                    }
+                })
+                break
+            case 'tal':
+                this.setState({
+                    list:{
+                        name:list.name,
+                        tal:e.target.value,
+                        site:list.site,
+                        address:list.address
+                    }
+                })
+                break
+            case 'site':
+                this.setState({
+                    list:{
+                        name:list.name,
+                        tal:list.tal,
+                        site:e.target.value,
+                        address:list.address
+                    }
+                })
+                break
+            case 'address':
+                this.setState({
+                    list:{
+                        name:list.name,
+                        tal:list.tal,
+                        site:list.site,
+                        address:e.target.value
+                    }
+                })
+                break
+            default:
+                break
         }
-        
-        console.log(this.state.list)       
+        console.log(list)
     }
     addClick(list){
         this.setState({
@@ -58,10 +74,10 @@ class Site extends Component {
             <div>
                 {
                     !flag&&<div>
-                    <p className="add">收 货 人：<input className='name' type="text" placeholder="请输入" onChange={this.inputChange}/></p>
-                    <p className="add">收货电话：<input className='tal' type="text" placeholder="请输入" onChange={this.inputChange}/></p>
-                    <p className="add">收货地址：<input className='site' type="text" placeholder="请输入" onChange={this.inputChange}/></p>
-                    <p className="add">详细地址：<input className='address' type="text" placeholder="请输入" onChange={this.inputChange}/></p>
+                    <p className="add">收 货 人：<input name='name' type="text" placeholder='请输入' onChange={this.inputChange}/></p>
+                    <p className="add">收货电话：<input name='tal' type="text" placeholder='请输入'  onChange={this.inputChange}/></p>
+                    <p className="add">收货地址：<input name='site' type="text" placeholder='请输入'  onChange={this.inputChange}/></p>
+                    <p className="add">详细地址：<input name='address' type="text" placeholder='请输入'  onChange={this.inputChange}/></p>
                 </div>
                 }
                 {flag?<div className="ok" onClick={()=>{

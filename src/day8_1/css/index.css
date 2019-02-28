@@ -61,7 +61,7 @@ section .add{
     background: #eee;
 }
 section .add input{
-    width: 68%;
+    width: 60%;
     height: 100%;
     border: none;
     background: none;
